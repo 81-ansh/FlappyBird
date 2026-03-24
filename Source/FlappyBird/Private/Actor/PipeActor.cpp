@@ -58,5 +58,10 @@ void APipeActor::Tick(float DeltaTime)
 	
 	FVector Direction = FVector(-(MoveSpeed * DeltaTime), 0.0f, 0.0f);
 	AddActorWorldOffset(Direction);
+	
+	if (GetActorLocation().X < DestroyActor)
+        {
+            Destroy();
+        }
 }
 
