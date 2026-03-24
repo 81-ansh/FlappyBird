@@ -3,3 +3,7 @@
 
 #include "Game/FBGameMode.h"
 
+void AFBGameMode::AddScore()
+{
+	++Score;
+}

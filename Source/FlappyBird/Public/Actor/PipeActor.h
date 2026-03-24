@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Components/BoxComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "GameFramework/Actor.h"
 #include "PipeActor.generated.h"
@@ -22,8 +23,20 @@ public:
 	UPROPERTY(VisibleAnywhere)
 	TObjectPtr<UStaticMeshComponent> BottomPipe;
 	
+	UPROPERTY(VisibleAnywhere)
+	TObjectPtr<UBoxComponent> TopCollision;
+	
+	UPROPERTY(VisibleAnywhere)
+	TObjectPtr<UBoxComponent> BottomCollision;
+	
+	UPROPERTY(VisibleAnywhere)
+	TObjectPtr<UBoxComponent> ScoreCollision;
+	
 	UPROPERTY(EditAnywhere, Category = "Pipe")
 	float MoveSpeed = 300.f;
+	
+	UFUNCTION()
+	void OnScoreOverlap(UPrimitiveComponent* OverlapComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 	
 	
 protected:

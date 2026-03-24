@@ -30,8 +30,24 @@ public:
 	UPROPERTY(EditAnywhere, Category = "Input")
 	TObjectPtr<UInputAction> FlapAction;
 	
+	UPROPERTY(EditAnywhere)
+	float ZBoost = 300.f;
+	
+	UPROPERTY(VisibleAnywhere)
+	bool bIsDead = false;
+	
 	void Flap(const FInputActionValue& Value);
+	
+	UFUNCTION(BlueprintCallable)
+	void OnOverlapBegin(UPrimitiveComponent* OverlapComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+	
+	void Die();
 
+	UPROPERTY(EditAnywhere, Category = "Bird")
+	float MinZ = -300.f;
+	
+	UPROPERTY(EditAnywhere, Category = "Bird")
+	float MaxZ = 300.f;
 
 protected:
 	

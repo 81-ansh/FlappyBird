@@ -32,6 +32,9 @@ public:
 	
 	UFUNCTION()
 	void SpawnPipe();
+	
+	UFUNCTION()
+	void StopSpawning();
 
 protected:
 	

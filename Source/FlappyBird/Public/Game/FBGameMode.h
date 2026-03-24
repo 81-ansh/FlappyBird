@@ -14,4 +14,14 @@ class FLAPPYBIRD_API AFBGameMode : public AGameModeBase
 {
 	GENERATED_BODY()
 	
+public:
+	
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	int32 Score = 0;
+	
+	UFUNCTION(BlueprintCallable)
+	void AddScore();
+	
+	UFUNCTION(BlueprintImplementableEvent)
+	void OnBirdDied();
 };
